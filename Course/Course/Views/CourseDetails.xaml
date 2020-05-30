@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Course.Views.CourseDetails">
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem   Text="Cancel" Clicked="Cancel_Clicked" />
+        
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.Content>
+        <StackLayout>
+
+            <!--<Picker ItemsSource="{Binding CourseCategories}"
+                    ItemDisplayBinding="{Binding Name}"
+        SelectedItem="{Binding CourseModel.Category}"  
+            x:Name="CourseCategoryddl" FontSize="Medium" Title="Course Category" >
+
+            </Picker>-->
+            <Grid Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                     
+                </Grid.ColumnDefinitions>
+                <Label  Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Text="{Binding CourseModel.Name}"  TextColor="{StaticResource lblColor}" 
+                                LineBreakMode="NoWrap"    FontSize="16" HorizontalTextAlignment="Center" />
+                <Image Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="0" Source="{Binding CourseModel.ImageUrl}"  Aspect="AspectFit"
+                               HeightRequest="60"                        WidthRequest="60"></Image>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Duration"             LineBreakMode="NoWrap"       />
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding CourseModel.Duration}"             LineBreakMode="NoWrap"     Style="{StaticResource lblStyle}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Rate"             LineBreakMode="NoWrap"       />
+                <ProgressBar  Grid.Row="3" Grid.Column="1" Progress="{Binding CourseModel.Rate}"   />
+                <Label Grid.Row="4" Grid.Column="0" Text="Level"             LineBreakMode="NoWrap"       />
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding CourseModel.Level}"                 LineBreakMode="NoWrap"    FontSize="10" />
+                <StackLayout Grid.ColumnSpan="2" Grid.Row="5" Grid.Column="0">
+                    <Label   Text="Course Summary"      HorizontalTextAlignment="Center"         LineBreakMode="NoWrap"       />
+                    <Label   Text="{Binding CourseModel.Summary}"      HorizontalTextAlignment="Center"         LineBreakMode="NoWrap"       />
+                </StackLayout>
+
+                <Button Text="Add to playlist"  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" Style="{StaticResource RegularButtonStyle}"></Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

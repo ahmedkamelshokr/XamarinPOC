@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:selector="clr-namespace:Course.TemplateSelectors"
+             xmlns:behaviours="clr-namespace:Course.Behaviors"
+             xmlns:converters="clr-namespace:Course.Converters"
+             mc:Ignorable="d"
+             x:Class="Course.Views.CoursesList"
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Course" Clicked="AddItem_Clicked"   />
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.Resources>
+
+
+        <ResourceDictionary>
+            <converters:RateColorConverter x:Key="RateToColorConverter"/>
+            <DataTemplate x:Key="RegularTemplate">
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition  ></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Source="{Binding ImageUrl}"  Aspect="Fill"
+                               HeightRequest="60"                        WidthRequest="60"></Image>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}"  TextColor="{StaticResource lblColor}" 
+                                LineBreakMode="NoWrap"    FontSize="16" />
+
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Duration}"             LineBreakMode="NoWrap"     Style="{StaticResource lblStyle}" />
+                    <ProgressBar  Grid.Row="1" Grid.Column="3" Progress="{Binding Rate}"  ProgressColor="{Binding Rate, Converter={StaticResource  Key=RateToColorConverter}}"  />
+                    
+                    <Label Grid.Row="1" Grid.Column="2" Text="{Binding Level}"                 LineBreakMode="NoWrap"    FontSize="10" />
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="RatedTemplate">
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <BoxView  Grid.RowSpan="2" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"  BackgroundColor="Gold">
+                        
+                    </BoxView>
+                    <Image Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Source="{Binding ImageUrl}"  Aspect="Fill"
+                               HeightRequest="60"                        WidthRequest="60"></Image>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}"  TextColor="{StaticResource lblColor}" 
+                                LineBreakMode="NoWrap"    FontSize="16" />
+
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Duration}"             LineBreakMode="NoWrap"     Style="{StaticResource lblStyle}" />
+
+                    <Label Style="{StaticResource lblStyle}"  Grid.Row="1" Grid.Column="3" Text="Top Rated" />
+                    <Label Grid.Row="1" Grid.Column="2" Text="{Binding Level}"                 LineBreakMode="NoWrap"    FontSize="12" />
+                </Grid>
+            </DataTemplate>
+            <selector:CourseTemplateSelector x:Key="courseTemplateSelector"
+                RatedTemplate="{StaticResource RatedTemplate}"
+                RegularTemplate="{StaticResource RegularTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <SearchBar x:Name="searchCourses" SearchCommand="{Binding LoadItemsCommand}"  Text="{Binding SearchPararmeter}" TextChanged="">
+            <SearchBar.Behaviors>
+                <behaviours:SearchEntry></behaviours:SearchEntry>
+            </SearchBar.Behaviors>
+        </SearchBar>
+            <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
+
+        <CollectionView x:Name="ItemsCollectionView" ItemTemplate="{StaticResource courseTemplateSelector }"
+                ItemsSource="{Binding Courses}" SelectionMode="Single" SelectedItem="{Binding SelectedCourse}"  SelectionChangedCommand="{Binding CourseSelectedCommand}">
+
+
+            
+        </CollectionView>
+    </RefreshView>
+    </StackLayout>
+
+</ContentPage>

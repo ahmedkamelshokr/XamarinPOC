@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behaviuors="clr-namespace:Course.Behaviors"
+             mc:Ignorable="d"
+             x:Class="Course.Views.LoginView">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="50">
+            <Label Text="My Courses Library"></Label>
+
+            <Entry x:Name="txtUsername" ClassId="Username" Text="{Binding User.Username}" d:Text="Username" FontSize="Small"  Placeholder="User Name">
+                <Entry.Behaviors>
+                    <behaviuors:MandatoryEntry></behaviuors:MandatoryEntry>
+                   
+                </Entry.Behaviors>
+            </Entry>
+            <Label x:Name="UsernameError"         IsVisible="False" TextColor="Red" />
+
+            <Entry   x:Name="txtPassword"  ClassId="Password" Text="{Binding User.Password}" d:Text="password" FontSize="Small" Margin="0" Placeholder="Password" IsPassword="True">
+                <Entry.Behaviors>
+                    <behaviuors:MandatoryEntry></behaviuors:MandatoryEntry>
+
+                </Entry.Behaviors>
+            </Entry>
+            <Label x:Name="PasswordError"         IsVisible="False" TextColor="Red" />
+
+            <Button x:Name="btnLogin" Text="Login"  Command="{Binding LoginCommand}" Style="{StaticResource RegularButtonStyle}">
+                 
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
