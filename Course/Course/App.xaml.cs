@@ -15,7 +15,7 @@ namespace Course
 
             DependencyService.Register<UserService>();
             DependencyService.Register<MockCourseModelStore>();
-            MainPage = new NavigationPage(new MainPage());// new MainPage();
+            MainPage = new NavigationPage(new LoginView());// new MainPage();
                //   var mainPage = new NavigationPage(new LoginView());
 
            // MainPage = mainPage;

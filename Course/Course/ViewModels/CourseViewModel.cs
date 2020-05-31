@@ -15,7 +15,7 @@ namespace Course.ViewModels
         //change to make data changes reflect to the ui  
         public CourseModel CourseModel { get; set; } = new CourseModel();
 
-       public Command BackToMainCommand { get { return   new Command(async () => await App.Current.MainPage.Navigation.PopAsync()); } }
+       public Command AddToPlaylistCommand { get { return   new Command(AddToPlaylist); } }
 
 
         public CourseViewModel(CourseModel course,INavigation Navigation) : base(Navigation)
@@ -24,8 +24,10 @@ namespace Course.ViewModels
 
         }
 
-
-
+        private void AddToPlaylist()
+        {
+            PlayListService.TempPlayList.Add(CourseModel);
+        }
 
     }
 }

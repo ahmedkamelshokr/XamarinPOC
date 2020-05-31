@@ -7,39 +7,42 @@
              x:Class="Course.Views.PlayListView">
     <ContentPage.Content>
         <StackLayout>
-            <Label HorizontalOptions="CenterAndExpand">Play list</Label>
-            <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
+            <Label IsVisible="{Binding PlayListHasNoItems}">No Courses Added To The Playlist</Label>
+           
+            <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}" IsVisible="{Binding PlayListHasItems}">
 
-            <CollectionView x:Name="ItemsCollectionView"  
+                <CollectionView x:Name="ItemsCollectionView"  
                 ItemsSource="{Binding PlayList.PlayList}" SelectionMode="Single" SelectedItem="{Binding SelectedCourse}"  SelectionChangedCommand="{Binding CourseSelectedCommand}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition  ></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="2*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                             
-                        </Grid.ColumnDefinitions>
-                        <Image Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Source="{Binding ImageUrl}"  Aspect="Fill"
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition  ></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Source="{Binding ImageUrl}"  Aspect="Fill"
                                HeightRequest="60"                        WidthRequest="60"></Image>
-                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}"  TextColor="{StaticResource lblColor}" 
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}"  TextColor="{StaticResource lblColor}" 
                                 LineBreakMode="NoWrap"    FontSize="16" />
 
-                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Duration}"             LineBreakMode="NoWrap"     Style="{StaticResource lblStyle}" />
-                                <Button Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Text="Remove"></Button>
-                    </Grid>
-
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </RefreshView>
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Duration}"             LineBreakMode="NoWrap"     Style="{StaticResource lblStyle}" />
+                                <Button Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Text="Remove"
+                                        Command="{Binding Path=BindingContext.RemoveFromPlaylist, Source={x:Reference ItemsCollectionView}}" 
+                                          CommandParameter="{Binding .}"></Button>
+                            </Grid>
+                            <!--</SwipeView>-->
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
         </StackLayout>
-           
-        
+
+
     </ContentPage.Content>
 </ContentPage>

@@ -50,7 +50,7 @@
                     <Label   Text="{Binding CourseModel.Summary}"      HorizontalTextAlignment="Center"         LineBreakMode="NoWrap"       />
                 </StackLayout>
 
-                <Button Text="Add to playlist"  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" Style="{StaticResource RegularButtonStyle}"></Button>
+                <Button Text="Add to playlist"  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" Style="{StaticResource RegularButtonStyle}" Command="{Binding AddToPlaylistCommand}"></Button>
             </Grid>
         </StackLayout>
     </ContentPage.Content>
