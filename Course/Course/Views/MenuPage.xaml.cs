@@ -1,9 +1,5 @@
-﻿using Course.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Course.Views
 {

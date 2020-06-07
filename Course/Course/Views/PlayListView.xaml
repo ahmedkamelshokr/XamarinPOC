@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label IsVisible="{Binding PlayListHasNoItems}">No Courses Added To The Playlist</Label>
-           
+
             <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}" IsVisible="{Binding PlayListHasItems}">
 
                 <CollectionView x:Name="ItemsCollectionView"  
@@ -36,7 +36,6 @@
                                         Command="{Binding Path=BindingContext.RemoveFromPlaylist, Source={x:Reference ItemsCollectionView}}" 
                                           CommandParameter="{Binding .}"></Button>
                             </Grid>
-                            <!--</SwipeView>-->
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>

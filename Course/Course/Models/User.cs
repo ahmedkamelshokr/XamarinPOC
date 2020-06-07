@@ -1,6 +1,4 @@
-﻿using Course.Behaviors;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.CompilerServices;
+﻿using System.ComponentModel.DataAnnotations;
 namespace Course.Models
 {
     public class UserModel 

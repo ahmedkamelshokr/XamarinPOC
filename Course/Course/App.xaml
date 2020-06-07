@@ -22,13 +22,13 @@
             </Style>
             <Color x:Key="lblColor">#22cfa7</Color>
             <Color x:Key="ratedCourseColor">Gold</Color>
-                    <Style x:Key="lblStyle" TargetType="Label">
-                        <Setter Property="TextColor" Value="Red"></Setter>
-                        <Setter Property="FontAttributes"   Value="Italic"></Setter>
+            <Style x:Key="lblStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Red"></Setter>
+                <Setter Property="FontAttributes"   Value="Italic"></Setter>
 
-                    </Style>
-                 
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
-    
+
 </Application>

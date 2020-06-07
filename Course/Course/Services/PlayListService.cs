@@ -1,9 +1,5 @@
 ﻿using Course.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Course.Services
@@ -20,7 +16,7 @@ namespace Course.Services
             return await Task.FromResult(new PlayListModel
             {
                 User = user,
-                PlayList = TempPlayList// new MockCourseModelStore().GetItemsAsync().Result.ToList()
+                PlayList = TempPlayList
             }
             );
         }

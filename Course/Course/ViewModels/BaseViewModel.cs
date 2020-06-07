@@ -12,7 +12,6 @@ namespace Course.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
         public IDataStore<CourseModel> CourseDataStore => DependencyService.Get<IDataStore<CourseModel>>();
 
         bool isBusy = false;

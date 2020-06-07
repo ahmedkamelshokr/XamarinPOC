@@ -1,9 +1,6 @@
 ﻿using Course.Models;
 using Course.Services;
 using Course.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace Course.ViewModels
@@ -15,10 +12,10 @@ namespace Course.ViewModels
 
         public UserModel User { get; set; }
 
-            public LoginViewModel(Page page,INavigation Navigation) : base(Navigation)
+        public LoginViewModel(Page page, INavigation Navigation) : base(Navigation)
         {
             User = new UserModel();
-            userService =new UserService();
+            userService = new UserService();
             this.page = page;
         }
 
@@ -32,18 +29,6 @@ namespace Course.ViewModels
             {
 
                 await App.Current.SavePropertiesAsync();
-
-                // App.Current.MainPage.Navigation.InsertPageBefore(new MainPage(), App.Current.MainPage);
-
-                //await App.Current.MainPage.Navigation.PopAsync();
-
-                //var masterDetailPage = new MasterDetailPage()
-                //{
-                //    Master = new MainPage(),
-                //    Detail = new NavigationPage(new CoursesList())
-                //};
-
-                //Application.Current.MainPage = masterDetailPage;
 
                 Application.Current.MainPage = new NavigationPage(new MainPage());
             }

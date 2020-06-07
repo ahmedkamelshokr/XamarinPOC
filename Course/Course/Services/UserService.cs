@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Course.Services
+﻿namespace Course.Services
 {
     public class UserService
     {

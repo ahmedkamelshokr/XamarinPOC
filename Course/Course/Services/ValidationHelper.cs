@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using Xamarin.Forms;
 
 namespace Course.Services
@@ -45,7 +44,7 @@ namespace Course.Services
             if (model == null) { return; }
             foreach (var error in errors)
             {
-                var memberName = error.MemberNames.FirstOrDefault();// $"{model.GetType().Name}_{error.MemberNames.FirstOrDefault()}";
+                var memberName = error.MemberNames.FirstOrDefault();
                 memberName = memberName.Replace(".", "_");
                 var errorControlName = $"{memberName}{validationLabelSuffix}";
                 var control = page.FindByName<Label>(errorControlName);
@@ -62,7 +61,7 @@ namespace Course.Services
             var properties = GetValidatableProperties(model);
             foreach (var propertyInfo in properties)
             {
-                var errorControlName = propertyInfo.Name;// $"{propertyInfo.DeclaringType.Name}.{propertyInfo.Name}";
+                var errorControlName = propertyInfo.Name;
                 validatableProperties.Add(errorControlName);
             }
             return validatableProperties;

@@ -1,8 +1,5 @@
 ﻿using Course.Models;
-using Course.Services;
 using Course.ViewModels;
-using System;
-using System.Collections.Generic;
 
 
 using Xamarin.Forms;

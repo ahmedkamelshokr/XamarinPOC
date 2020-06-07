@@ -26,13 +26,7 @@ namespace Course.ViewModels
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             CourseSelectedCommand = new Command(async () => await SelectedItemChanged());
             SearchCoursesCommand = new Command(async () => await ExecuteLoadItemsCommand());
-            //MessagingCenter.Subscribe<CourseDetails, CourseModel>(this, "CourseSaved", async (obj, item) =>
-            //{
-            //    var newItem = item as CourseModel;
-            //    Courses.Add(newItem);
-            //    await CourseDataStore.AddItemAsync(newItem);
-            //});
-        }
+            }
 
 
         async Task SelectedItemChanged()

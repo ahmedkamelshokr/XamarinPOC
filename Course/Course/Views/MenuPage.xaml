@@ -2,16 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:Course.Models"
-              xmlns:Views="clr-namespace:Course.Views"
              x:Class="Course.Views.MenuPage"
              Title="Navigation">
     <StackLayout>
         <ListView x:Name="NavigationListView" x:FieldModifier="public">
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type model:MasterNavigationItem}">
-                    <model:MasterNavigationItem Title="Courses List" Icon="pie.png" Target="{x:Type Views:CoursesList}" />
-                    <model:MasterNavigationItem Title="Play List" Icon="settings.png" Target="{x:Type Views:PlayListView}" />
-                    <model:MasterNavigationItem Title="About" Icon="web.png" Target="{x:Type Views:AboutPage}" />
+                    <model:MasterNavigationItem Title="Courses List" Icon="pie.png" PageName="CoursesList"  />
+                    <model:MasterNavigationItem Title="Play List" Icon="settings.png" PageName="PlayListView" />
+                    <model:MasterNavigationItem Title="About" Icon="web.png" PageName="AboutPage" />
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>

@@ -1,10 +1,6 @@
 ﻿using Course.Models;
 using Course.Services;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Course.ViewModels
@@ -28,8 +24,7 @@ namespace Course.ViewModels
         {
             get
             {
-                return new Command<CourseModel>((challenge) =>
-RemoveCourseFromPlaylist(challenge));
+                return new Command<CourseModel>((challenge) =>RemoveCourseFromPlaylist(challenge));
             }
         }
 
@@ -39,9 +34,6 @@ RemoveCourseFromPlaylist(challenge));
             PlayList.PlayList.Remove(course);
         }
 
-        //private async Task RemoveCourseFromPlaylist(CourseModel course)
-        //{
-        //    await PlayListService.TempPlayList.Remove(course);
-        //}
+      
     }
 }

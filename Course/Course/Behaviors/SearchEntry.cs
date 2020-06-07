@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Course.Behaviors
 {
-  public  class SearchEntry: Behavior<SearchBar>
+    public  class SearchEntry: Behavior<SearchBar>
     {
         protected override void OnAttachedTo(SearchBar bindable)
         {
